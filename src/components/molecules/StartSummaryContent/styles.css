@@ -1,0 +1,22 @@
+.WelcomePageWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.ButtonWrapper {
+  margin-top: 25px;
+}
+
+@media (max-width: 650px) {
+  .WelcomePageWrapper {
+    text-align: center;
+  }
+  .ButtonWrapper {
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    margin-top: 0;
+    padding: 0 30px;
+  }
+}

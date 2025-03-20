@@ -1,0 +1,11 @@
+.HeadingPrimary {
+  font-weight: 600;
+  color: var(--fontColor);
+  font-size: clamp(2rem, 5vw, 9rem);
+}
+
+.HeadingSub {
+  font-weight: 600;
+  color: #d0d0d8;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
