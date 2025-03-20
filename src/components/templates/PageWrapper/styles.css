@@ -1,0 +1,45 @@
+.PageContainer {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.PageContainer__triangle {
+  background: linear-gradient(to top left, #fff3eb 50%, white 50%);
+}
+
+.PageContainer__content {
+  display: flex;
+  width: 80%;
+}
+
+.PageContainer__content--icon {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.PageContainer__content--textContent {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 650px) {
+  .PageContainer__content {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .PageContainer__content--textContent {
+    margin-top: 30px;
+    width: 100%;
+    padding: 0 30px;
+  }
+}

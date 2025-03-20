@@ -1,0 +1,32 @@
+.Button {
+  width: 50%;
+  height: 64px;
+  background: #ff8b37;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+  transition: all 0.4s;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Button:hover {
+  background: #ffac70;
+}
+.Button:active {
+  background: #e87928;
+  transform: translateY(5px);
+}
+
+@media (max-width: 650px) {
+  .Button {
+    width: 100%;
+  }
+}
