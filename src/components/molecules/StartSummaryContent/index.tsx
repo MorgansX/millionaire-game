@@ -9,12 +9,15 @@ export const StartSummaryContent: React.FC<TextContentProps> = ({
   navigateTo,
   buttonTitle,
   subTitle,
+  onButtonClick,
 }) => (
   <div className={'WelcomePageWrapper'}>
     {subTitle && <Typography.h3>{subTitle}</Typography.h3>}
     <Typography.h1>{title}</Typography.h1>
     <div className={'ButtonWrapper'}>
-      <NavigationButton navigateTo={navigateTo}>{buttonTitle}</NavigationButton>
+      <NavigationButton onClick={onButtonClick} navigateTo={navigateTo}>
+        {buttonTitle}
+      </NavigationButton>
     </div>
   </div>
 );
