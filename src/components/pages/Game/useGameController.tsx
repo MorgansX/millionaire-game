@@ -14,6 +14,7 @@ export const useGameController = () => {
   const setHexagonState = useHexagonState((state) => state.setHexagonStateTo);
   const resetHexagonState = useHexagonState((state) => state.resetState);
   const setAmountState = useAmountState((state) => state.setAmount);
+  const setAmountCurrency = useAmountState((state) => state.setAmountCurrency);
 
   const questionList: Array<QuestionProps> = gameConfig.questions;
   const currentQuestion = questionList[questionIndex];
@@ -72,6 +73,10 @@ export const useGameController = () => {
 
     setAmountProgressList(updatedAmountList);
   };
+
+  useEffect(() => {
+    setAmountCurrency(gameSettings.currency);
+  }, []);
 
   useEffect(() => {
     resetHexagonState();

@@ -1,12 +1,15 @@
 import * as React from 'react';
-import { SVGProps } from 'react';
 import './styles.css';
-const HandIcon = (props: SVGProps<SVGSVGElement>) => (
+
+const HandIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 453 357"
     fill="none"
-    className={'HandIcon'}
+    className="HandIcon"
+    width="80%"
+    height="80%"
+    preserveAspectRatio="xMidYMid meet"
     {...props}
   >
     <path
@@ -51,4 +54,5 @@ const HandIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+
 export default HandIcon;

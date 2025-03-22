@@ -7,13 +7,14 @@ import { useAmountState } from '@/store/useAmountState';
 
 export const SummaryPage: React.FC = () => {
   const amount = useAmountState((state) => state.state);
+  const amountCurrency = useAmountState((state) => state.currency);
   const resetAmount = useAmountState((state) => state.resetAmount);
 
   return (
     <PageWrapper>
       <StartSummaryContent
         subTitle={summaryPageConfig.subTitle}
-        title={`${amount} ${summaryPageConfig.title}`}
+        title={`${amount} ${amountCurrency} ${summaryPageConfig.title}`}
         navigateTo={summaryPageConfig.navigateTo}
         buttonTitle={summaryPageConfig.buttonTitle}
         onButtonClick={resetAmount}
