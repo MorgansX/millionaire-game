@@ -1,0 +1,44 @@
+.GameContainerQuestions {
+  height: 100vh;
+  width: 65%;
+  background: #f5f5f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.AnswersContainer {
+  max-width: 800px;
+  width: 100%;
+  max-height: 270px;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 20px 20px 20px 40px;
+}
+
+.QuestionContainer {
+  align-self: start;
+  padding: 85px 10px 0 55px;
+}
+
+.QuestionText {
+  font-size: clamp(2rem, 2vw, 5rem);
+  font-weight: 600;
+}
+
+@media (max-width: 540px) {
+  .AnswersContainer {
+    display: block;
+    max-height: 500px;
+    padding: unset;
+  }
+  .GameContainerQuestions {
+    width: 100%;
+  }
+
+  .QuestionContainer {
+    text-align: center;
+    padding: 85px 10px 0 10px;
+  }
+}

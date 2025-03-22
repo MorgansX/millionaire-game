@@ -9,7 +9,7 @@ export const welcomePageConfig: TextContentProps = {
 
 export const summaryPageConfig: TextContentProps = {
   subTitle: 'Total score:',
-  title: '$8,000 earned',
+  title: 'earned',
   navigateTo: ROUTES.GAME,
   buttonTitle: 'Try again',
 };

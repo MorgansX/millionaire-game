@@ -1,0 +1,92 @@
+.HexagonAnswerWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 421px;
+  margin: 0 auto 15px;
+}
+
+.HexagonContainer {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.TextContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.AmountContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-56.5%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.TextContent {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.AnswerLetter {
+  font-size: 23px;
+  color: #ff8b37;
+  font-weight: 700;
+}
+.AnswerText {
+  font-size: 20px;
+  color: #1c1c21;
+  font-weight: 400;
+  padding-left: 10px;
+}
+
+.AmountText {
+  font-size: 20px;
+  color: #1c1c21;
+  padding-left: 50px;
+}
+
+@media (max-width: 480px) {
+  .TextContent h1 {
+    font-size: 1.2rem;
+  }
+
+  .TextContent p {
+    font-size: 0.9rem;
+  }
+}
+
+.HexagonAnswerSvg {
+  z-index: 2;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 920px) {
+  .AmountContainer {
+    transform: translate(-60.5%, -50%);
+  }
+}
+
+.Text_previous {
+  color: #d0d0d8;
+}
+
+.Text_current {
+  color: #f69f53;
+}
