@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useHexagonState } from '@/store/useHexagonState';
-import { HEXAGON_STATES, hexagonAmountColors, hexagonAnswerColors } from '@/contstants/colors';
+import { HEXAGON_STATES, hexagonAmountColors, hexagonAnswerColors } from '@/constants/colors';
 
 type UseHexagonProps = {
   answer?: string;

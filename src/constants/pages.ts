@@ -1,5 +1,5 @@
 import { TextContentProps } from '@/types';
-import { ROUTES } from '@/contstants/routes';
+import { ROUTES } from '@/constants/routes';
 
 export const welcomePageConfig: TextContentProps = {
   title: 'Who wants to be a millionaire?',

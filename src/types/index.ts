@@ -6,14 +6,17 @@ export type TextContentProps = {
   onButtonClick?: () => void;
 };
 
-export type RewardListProps = {
-  isActive: boolean;
-  visited: boolean;
+export type QuestionLevels = {
   level: number;
   reward: number;
 };
 
-type QuestionOptionProps = { id: string; text: string };
+export interface RewardListProps extends QuestionLevels {
+  isActive: boolean;
+  visited: boolean;
+}
+
+export type QuestionOptionProps = { id: string; text: string };
 
 export type QuestionProps = {
   id: number;
@@ -33,4 +36,13 @@ export type AmountProps = {
     fill: string;
     stroke: string;
   };
+};
+type GameSettings = {
+  totalQuestions: number;
+  currency: string;
+};
+export type GameConfigProps = {
+  settings: GameSettings;
+  questionLevels: QuestionLevels[];
+  questions: QuestionProps[];
 };
