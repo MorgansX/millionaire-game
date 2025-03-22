@@ -4,7 +4,7 @@ import './styles.css';
 import { Hexagon } from '@/components/atoms/HexagonItem/HexagonSvg/HexagonSvg';
 
 type HexagonAmountProps = {
-  amount: number;
+  amount: string;
   currency: string;
   isActive: boolean;
   isPrev: boolean;
