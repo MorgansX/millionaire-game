@@ -39,13 +39,12 @@ export const useGameController = () => {
   const proceedToNextQuestion = () => setQuestionIndex((prev) => prev + 1);
 
   const onAnswerClick = (answer: string) => {
-    if (questionIndex >= totalQuestions) return goToSummary();
-
     const isValidAnswer = checkAnswer(answer);
 
     if (isValidAnswer) {
       setHexagonState({ buttonId: answer, state: 'correct' });
       setAmountState(amountProgressList[questionIndex].reward);
+      if (questionIndex >= totalQuestions) return goToSummary();
       return delayedCb(proceedToNextQuestion, 550);
     }
 
