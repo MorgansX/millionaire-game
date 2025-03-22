@@ -11,14 +11,16 @@ type SummaryAmountProps = {
 
 export const SummaryAmount: React.FC<SummaryAmountProps> = ({ amountOptions, currency }) => (
   <section className="GameAmountScoreSection">
-    {amountOptions.map((option) => (
-      <HexagonAmount
-        key={option.level}
-        isActive={option.isActive}
-        isPrev={option.visited}
-        amount={option.reward}
-        currency={currency}
-      />
-    ))}
+    <div className={'ScoreContainer'}>
+      {amountOptions.map((option) => (
+        <HexagonAmount
+          key={option.level}
+          isActive={option.isActive}
+          isPrev={option.visited}
+          amount={option.reward}
+          currency={currency}
+        />
+      ))}
+    </div>
   </section>
 );
