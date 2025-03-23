@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Millionaire Game
 
-## Getting Started
+A Who Wants to Be a Millionaire style quiz game built with Next.js and React.
 
-First, run the development server:
+## Table of Contents
+
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Available Scripts](#available-scripts)
+- [Project Structure](#project-structure)
+- [Testing](#testing)
+- [Code Quality](#code-quality)
+- [Contributing](#contributing)
+
+## Overview
+
+This project is a quiz game inspired by the popular TV show "Who Wants to Be a Millionaire". Players can test their knowledge by answering increasingly difficult questions to win virtual money.
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (latest LTS version recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js) or [yarn](https://yarnpkg.com/)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git https://github.com/MorgansX/millionaire-game.git
+   cd millionaire-game
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+   or if you use yarn:
+   ```bash
+   yarn install
+   ```
+
+## Running the Project
+
+### Development Mode
+
+To run the project in development mode with hot-reloading:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will start the development server using Turbopack. The application will be available at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To create an optimized production build:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+To start the production server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Available Scripts
 
-## Deploy on Vercel
+- `npm run dev` - Start the development server with Turbopack
+- `npm run build` - Create an optimized production build
+- `npm run start` - Start the production server
+- `npm run lint` - Run ESLint to check for code issues
+- `npm run format` - Format code using Prettier
+- `npm run test` - Run Jest tests
+- `npm run prepare` - Set up Husky git hooks
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Game Configuration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The game is configured through a JSON file located at:
+- `/src/constants/questionsMock.json`
+
+This file contains all questions, answers, difficulty levels, and prize values.
+
+## Architecture
+
+The project follows a modular architecture:
+
+1. **Data Management**:
+    - Game data is managed through a singleton class at `/src/utils/GameConfig.ts`
+    - This class handles loading, parsing, generating questions and answers, providing access to the game configuration
+
+2. **Game Logic**:
+    - Core game logic is encapsulated in a custom hook at `src/components/pages/Game/useGameController.tsx`
+    - This hook manages game state, user interactions, and gameplay flow
+
+## Testing
+
+The project uses Jest and React Testing Library for unit and integration tests:
+
+```bash
+# Run all tests
+npm run test
+
+# Run tests in watch mode
+npm test -- --watch
+```

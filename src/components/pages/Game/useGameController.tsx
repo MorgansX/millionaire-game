@@ -47,7 +47,7 @@ export const useGameController = () => {
     }
 
     setHexagonState({ buttonId: answer, state: 'wrong' });
-    return delayedCb(goToSummary, 1000);
+    return delayedCb(goToSummary, 550);
   };
 
   const onAmountValueChange = () => {

@@ -165,7 +165,7 @@ describe('useGameController', () => {
     });
 
     expect(setHexagonStateMock).toHaveBeenCalledWith({ buttonId: 'B', state: 'wrong' });
-    expect(delayedCb).toHaveBeenCalledWith(expect.any(Function), 1000);
+    expect(delayedCb).toHaveBeenCalledWith(expect.any(Function), 550);
 
     expect(pushMock).toHaveBeenCalledWith(ROUTES.SUMMARY);
   });
