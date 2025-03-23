@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageWrapper } from '@/components/templates/PageWrapper';
 import { StartSummaryContent } from '@/components/molecules/StartSummaryContent';
-import { welcomePageConfig } from '@/contstants/pages';
+import { welcomePageConfig } from '@/constants/pages';
 
 export const WelcomePage: React.FC = () => (
   <PageWrapper isWelcomePage>

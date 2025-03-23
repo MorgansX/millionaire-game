@@ -16,10 +16,10 @@ export const QuestionContainer: React.FC<QuestionContainerProps> = ({
   return (
     <main className="GameContainerQuestions">
       <div className="QuestionContainer">
-        <Typography.text className="QuestionText">{question.text}</Typography.text>
+        <Typography.text className="QuestionText">{question?.text}</Typography.text>
       </div>
       <div className="AnswersContainer">
-        {question.options.map(({ id, text }) => (
+        {question?.options.map(({ id, text }) => (
           <HexagonAnswer
             key={id}
             onClick={() => onAnswerClick(id)}

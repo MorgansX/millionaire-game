@@ -1,28 +1,26 @@
-'use client';
 import { useEffect, useState } from 'react';
-import gameConfig from '@/contstants/questionsMock.json';
 import { QuestionProps, RewardListProps } from '@/types';
 import { useRouter } from 'next/navigation';
-import { ROUTES } from '@/contstants/routes';
+import { ROUTES } from '@/constants/routes';
 import { useHexagonState } from '@/store/useHexagonState';
 import { delayedCb } from '@/utils';
 import { useAmountState } from '@/store/useAmountState';
+import GameConfigModule from '@/utils/GameConfig';
 
 export const useGameController = () => {
   const router = useRouter();
+  const gameEngine = GameConfigModule.getInstance() as GameConfigModule;
+  const [questionList, setQuestionList] = useState<Array<QuestionProps>>([]);
   const [questionIndex, setQuestionIndex] = useState(0);
   const setHexagonState = useHexagonState((state) => state.setHexagonStateTo);
   const resetHexagonState = useHexagonState((state) => state.resetState);
   const setAmountState = useAmountState((state) => state.setAmount);
-  const setAmountCurrency = useAmountState((state) => state.setAmountCurrency);
-
-  const questionList: Array<QuestionProps> = gameConfig.questions;
   const currentQuestion = questionList[questionIndex];
-  const gameSettings = gameConfig.settings;
-  const totalQuestions = gameSettings.totalQuestions - 1;
+  const gameSettings = gameEngine?.getGameSettings();
+  const totalQuestions = gameSettings?.totalQuestions - 1;
 
   const [amountProgressList, setAmountProgressList] = useState<Array<RewardListProps>>(
-    gameConfig.questionLevels.map((level) => ({
+    gameEngine.getQuestionLevels().map((level) => ({
       ...level,
       isActive: false,
       visited: false,
@@ -49,7 +47,7 @@ export const useGameController = () => {
     }
 
     setHexagonState({ buttonId: answer, state: 'wrong' });
-    return delayedCb(goToSummary, 550);
+    return delayedCb(goToSummary, 1000);
   };
 
   const onAmountValueChange = () => {
@@ -74,7 +72,8 @@ export const useGameController = () => {
   };
 
   useEffect(() => {
-    setAmountCurrency(gameSettings.currency);
+    const randomQuestions = gameEngine.generateRandomQuestions() as Array<QuestionProps>;
+    setQuestionList(randomQuestions);
   }, []);
 
   useEffect(() => {
@@ -84,7 +83,7 @@ export const useGameController = () => {
 
   return {
     amountProgressList,
-    currency: gameSettings.currency,
+    currency: gameSettings?.currency,
     totalQuestions,
     currentQuestion,
     onAnswerClick,
